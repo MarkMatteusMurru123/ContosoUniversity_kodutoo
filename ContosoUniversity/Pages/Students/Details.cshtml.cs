@@ -19,7 +19,7 @@ namespace ContosoUniversity
             _context = context;
         }
 
-        public Student Students { get; set; }
+        public Student Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,13 @@ namespace ContosoUniversity
                 return NotFound();
             }
 
-            Students = await _context.Student.FirstOrDefaultAsync(m => m.ID == id);
+            Student = await _context.Students
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Course)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Students == null)
+            if (Student == null)
             {
                 return NotFound();
             }

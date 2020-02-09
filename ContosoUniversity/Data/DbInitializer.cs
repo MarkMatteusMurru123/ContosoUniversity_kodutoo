@@ -40,7 +40,7 @@ namespace ContosoUniversity.Data
             };
             foreach (Student s in students)
             {
-                context.Student.Add(s);
+                context.Students.Add(s);
             }
             context.SaveChanges();
             var courses = new Course[]

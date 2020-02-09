@@ -12,26 +12,48 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Students.LastName)
+            @Html.DisplayNameFor(model => model.Student.LastName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Students.LastName)
+            @Html.DisplayFor(model => model.Student.LastName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Students.FirstMidName)
+            @Html.DisplayNameFor(model => model.Student.FirstMidName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Students.FirstMidName)
+            @Html.DisplayFor(model => model.Student.FirstMidName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Students.EnrollmentDate)
+            @Html.DisplayNameFor(model => model.Student.EnrollmentDate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Students.EnrollmentDate)
+            @Html.DisplayFor(model => model.Student.EnrollmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Enrollments)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+                @foreach (var item in Model.Student.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                    </tr>
+                }
+            </table>
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Students.ID">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Student.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
