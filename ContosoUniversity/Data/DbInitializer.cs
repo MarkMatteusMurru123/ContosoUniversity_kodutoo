@@ -160,56 +160,56 @@ namespace ContosoUniversity.Data
             var enrollments = new Enrollment[]
            {
                 new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Valk").ID,
                     CourseID = courses.Single(c => c.Title == "Economics" ).CourseID,
                     Grade = Grade.A
                 },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Lomp").ID,
                     CourseID = courses.Single(c => c.Title == "Web Applications" ).CourseID,
                     Grade = Grade.C
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Kuldmäe").ID,
                     CourseID = courses.Single(c => c.Title == "Web Applications" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                        StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                        StudentID = students.Single(s => s.LastName == "Kaevats").ID,
                     CourseID = courses.Single(c => c.Title == "Calculus" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                        StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                        StudentID = students.Single(s => s.LastName == "Kaevats").ID,
                     CourseID = courses.Single(c => c.Title == "Data Processing" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                    StudentID = students.Single(s => s.LastName == "Murru").ID,
                     CourseID = courses.Single(c => c.Title == "IT operations" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Anand").ID,
+                    StudentID = students.Single(s => s.LastName == "Tiri").ID,
                     CourseID = courses.Single(c => c.Title == "IT operations" ).CourseID
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Anand").ID,
+                    StudentID = students.Single(s => s.LastName == "Habe").ID,
                     CourseID = courses.Single(c => c.Title == "Economics").CourseID,
                     Grade = Grade.B
                     },
                 new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Barzdukas").ID,
+                    StudentID = students.Single(s => s.LastName == "Habe").ID,
                     CourseID = courses.Single(c => c.Title == "Data Processing").CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Li").ID,
+                    StudentID = students.Single(s => s.LastName == "Valk").ID,
                     CourseID = courses.Single(c => c.Title == "Web Applications").CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Justice").ID,
+                    StudentID = students.Single(s => s.LastName == "Murru").ID,
                     CourseID = courses.Single(c => c.Title == "Web Applications").CourseID,
                     Grade = Grade.B
                     }
@@ -219,15 +219,15 @@ namespace ContosoUniversity.Data
             {
                 var enrollmentInDataBase = context.Enrollments.Where(
                     s =>
-                            s.Student.ID == e.StudentID &&
-                            s.Course.CourseID == e.CourseID).SingleOrDefault();
+                        s.Student.ID == e.StudentID &&
+                        s.Course.CourseID == e.CourseID).SingleOrDefault();
                 if (enrollmentInDataBase == null)
                 {
                     context.Enrollments.Add(e);
                 }
             }
             context.SaveChanges();
-        }
+        }   
 
 
 

@@ -57,7 +57,7 @@ namespace ContosoUniversity.Pages.Courses
             }
             if (await TryUpdateModelAsync<Course>(
                 courseToUpdate,
-                "course",   // Prefix for form value.
+                "course",   
                 c => c.Credits, c => c.DepartmentID, c => c.Title))
             {
                 await _context.SaveChangesAsync();
