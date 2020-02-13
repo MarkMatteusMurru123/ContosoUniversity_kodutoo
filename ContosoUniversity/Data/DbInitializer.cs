@@ -8,13 +8,16 @@ using ContosoUniversity.Models;
 namespace ContosoUniversity.Data
 {
     public class DbInitializer
-    {
+    { 
+        
         public static void Initialize(SchoolContext context)
         {
             //context.Database.EnsureCreated();
+
+            // Look for any students.
             if (context.Students.Any())
             {
-                return;
+                return;   // DB has been seeded
             }
 
             var students = new Student[]
@@ -157,8 +160,9 @@ namespace ContosoUniversity.Data
                 context.CourseAssignments.Add(ci);
             }
             context.SaveChanges();
+
             var enrollments = new Enrollment[]
-           {
+            {
                 new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Valk").ID,
                     CourseID = courses.Single(c => c.Title == "Economics" ).CourseID,
@@ -186,12 +190,12 @@ namespace ContosoUniversity.Data
                     },
                     new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Murru").ID,
-                    CourseID = courses.Single(c => c.Title == "IT operations" ).CourseID,
+                    CourseID = courses.Single(c => c.Title == "IT Operations" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Tiri").ID,
-                    CourseID = courses.Single(c => c.Title == "IT operations" ).CourseID
+                    CourseID = courses.Single(c => c.Title == "IT Operations" ).CourseID
                     },
                     new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Habe").ID,
@@ -213,7 +217,7 @@ namespace ContosoUniversity.Data
                     CourseID = courses.Single(c => c.Title == "Web Applications").CourseID,
                     Grade = Grade.B
                     }
-           };
+ };
 
             foreach (Enrollment e in enrollments)
             {
@@ -227,7 +231,8 @@ namespace ContosoUniversity.Data
                 }
             }
             context.SaveChanges();
-        }   
+        }
+
 
 
 
